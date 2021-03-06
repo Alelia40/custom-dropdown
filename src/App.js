@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <h1>Dropdown Component</h1>
-      <Dropdown selectedItems ={[]} listItems={generateList(1000)}></Dropdown>
+      <Dropdown selectedItems ={[]} listItems={generateList(50)}></Dropdown>
     </div>
   );
 }

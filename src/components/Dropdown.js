@@ -1,6 +1,7 @@
 import './Dropdown.css';
 
 import React, { useState } from 'react';
+import DropdownItem from './DropdownItem';
 
 function Dropdown(props) {
     const [isOpen, setIsOpen] = useState(false); //keeps track of whether or not the dd is open
@@ -21,14 +22,14 @@ function Dropdown(props) {
      * Function that sets the content of the dropdown header depending on how many items have been selected
      */
     function setHeaderContent() {
-        return selectedItems.length > 0 ? selectedItems.join(", ") : "Select an item";
+        return selectedItems.length > 0 ? selectedItems.join(", ") : "Select an item"; //if no items are selected display a null message, else display selections as a string
     }
 
     /**
      * Function that is called when an item is selected from the dropdown
      * @param {*} itemName 
      */
-    function selectItem(itemName) {
+    function modifySelectionsWith(itemName) {
         if(!selectedItems.includes(itemName)) {
             setSelectedItems(selectedItems => [...selectedItems, itemName]);
         }else {
@@ -37,12 +38,12 @@ function Dropdown(props) {
     }
 
     return (
-        <div className="Dropdown">
-            <div className="ddHeader" onClick={dropdownToggle}>{setHeaderContent()}</div>
+        <div className="card Dropdown">
+            <div className="card-header ddHeader" onClick={dropdownToggle}>{setHeaderContent()}</div>
             { isOpen && (
-                 <ul className="ddList">
+                 <ul className="list-group list-group-flush ddList">
                      {props.listItems.map( (item, i) =>
-                         <li className="ddItem" key={i} onClick={() => selectItem(item)}>{item}</li>
+                         <DropdownItem key={i} onSelect={modifySelectionsWith.bind(this, item)} itemName={item} buttonId={"selectionToggle"+i}></DropdownItem>
                      )}
                  </ul>
             )}
