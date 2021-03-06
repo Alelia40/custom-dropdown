@@ -1,9 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
 import Dropdown from './components/Dropdown';
+import React, { useState } from 'react';
 
 function App() {
 
+  const[dropdownVals, setDropdownVals] = useState(["Item1"]); //in order to get the values from using this component we need to track values from the parent
+
+  /**
+   * Helper function to generate a list input for the dropdown
+   * @param {*} length 
+   */
   function generateList(length) {
     let list = [];
     for (let i = 1; i < length; i++) {
@@ -15,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <h1>Dropdown Component</h1>
-      <Dropdown selectedItems ={[]} listItems={generateList(50)}></Dropdown>
+      <Dropdown options={generateList(50)} value={dropdownVals} onChangeValue={setDropdownVals}></Dropdown>
     </div>
   );
 }
