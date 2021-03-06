@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Dropdown from './components/Dropdown';
 
 function App() {
+
+  function generateList(length) {
+    let list = [];
+    for (let i = 1; i < length; i++) {
+      list.push("Item"+i);
+    }
+    return list;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Dropdown Component</h1>
+      <Dropdown selectedItems ={[]} listItems={generateList(1000)}></Dropdown>
     </div>
   );
 }
