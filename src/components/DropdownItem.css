@@ -3,3 +3,11 @@
     justify-content: space-between;
     align-content: center;
 }
+
+.itemTitle {
+    width:90%
+}
+
+.itemCheck {
+    width:10%
+}

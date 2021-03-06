@@ -19,10 +19,12 @@ function DropdownItem(props) {
 
     return (
         <button id={props.itemId} className="list-group-item list-group-item-action ddItem" onClick={selectionToggleClick}>
-            {props.itemName}
-            { selected && (
-               <FcCheckmark />
-            )}
+            <span className="itemTitle">{props.itemName}</span>
+            <span className="itemCheck">
+                {selected && (
+                    <FcCheckmark />
+                )}
+            </span>
         </button>
     );
 }
