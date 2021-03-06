@@ -1,4 +1,4 @@
-import './DropdownItem.css';
+import '../css/DropdownItem.css';
 
 import React, { useState } from 'react';
 import { FcCheckmark } from "react-icons/fc";
